@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { siteContent } from "@/lib/site-content";
 import { IlluWheatSprig, IlluFlowers, IlluFork, IlluLeaf } from "@/components/ui/illustrations";
 import { Logo } from "@/components/ui/logo";
+import { HeroPath } from "@/components/ui/hero-path";
 
 export function HeroSection() {
   return (
@@ -32,43 +33,51 @@ export function HeroSection() {
         <Logo variant="dark" className="h-full w-full" />
       </motion.div>
 
-      {/* Visuels décoratifs — apparition progressive au chargement */}
+      {/* ── Chemin narratif horizontal droite → gauche ── */}
+      <HeroPath />
+
+      {/* ── Visuels décoratifs — repositionnés aux coins pour ne pas couvrir le chemin ── */}
+
+      {/* Blé — coin supérieur droit, loin du chemin */}
       <motion.div
         aria-hidden
         initial={{ opacity: 0, y: 18, rotate: -8 }}
-        animate={{ opacity: 1, y: 0, rotate: -12 }}
-        transition={{ duration: 1.6, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className="absolute right-4 top-10 w-24 sm:right-10 sm:w-32 md:right-16 md:top-16 md:w-40 lg:right-28"
+        animate={{ opacity: 0.72, y: 0, rotate: -14 }}
+        transition={{ duration: 1.6, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
+        className="absolute right-3 top-3 w-16 sm:right-6 sm:top-4 sm:w-20 md:right-10 md:w-24 lg:right-14"
       >
         <IlluWheatSprig className="h-full w-full" />
       </motion.div>
 
+      {/* Fleurs — coin inférieur droit */}
       <motion.div
         aria-hidden
-        initial={{ opacity: 0, x: 20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1.8, delay: 1.1, ease: [0.22, 1, 0.36, 1] }}
-        className="absolute bottom-20 right-12 w-20 sm:right-20 sm:w-28 md:bottom-28 md:right-24 md:w-36"
+        initial={{ opacity: 0, x: 18 }}
+        animate={{ opacity: 0.62, x: 0 }}
+        transition={{ duration: 1.8, delay: 1.2, ease: [0.22, 1, 0.36, 1] }}
+        className="absolute bottom-32 right-3 w-16 sm:right-6 sm:w-20 md:bottom-36 md:right-10 md:w-24"
       >
         <IlluFlowers className="h-full w-full" />
       </motion.div>
 
+      {/* Fourche — bord gauche, milieu bas, sous le chemin */}
       <motion.div
         aria-hidden
-        initial={{ opacity: 0, rotate: 10 }}
-        animate={{ opacity: 0.55, rotate: 6 }}
-        transition={{ duration: 2, delay: 1.4, ease: [0.22, 1, 0.36, 1] }}
-        className="absolute left-4 top-1/3 w-8 sm:left-8 sm:w-10 md:left-12 md:w-12 lg:left-20"
+        initial={{ opacity: 0, rotate: 12 }}
+        animate={{ opacity: 0.48, rotate: 8 }}
+        transition={{ duration: 2.0, delay: 1.5, ease: [0.22, 1, 0.36, 1] }}
+        className="absolute bottom-40 left-3 w-7 sm:left-6 sm:w-9 md:left-10 md:bottom-44 md:w-11"
       >
         <IlluFork className="h-full w-full" />
       </motion.div>
 
+      {/* Feuille — coin inférieur gauche */}
       <motion.div
         aria-hidden
-        initial={{ opacity: 0, y: -12 }}
-        animate={{ opacity: 0.7, y: 0 }}
-        transition={{ duration: 1.5, delay: 1.6, ease: [0.22, 1, 0.36, 1] }}
-        className="absolute left-8 bottom-24 w-14 sm:left-16 sm:w-18 md:left-24 md:w-20"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 0.65, y: 0 }}
+        transition={{ duration: 1.5, delay: 1.7, ease: [0.22, 1, 0.36, 1] }}
+        className="absolute bottom-24 left-6 w-12 sm:left-10 sm:w-14 md:left-16 md:w-16"
       >
         <IlluLeaf className="h-full w-full" />
       </motion.div>
