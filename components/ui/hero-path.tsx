@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 
 // Chemin horizontal avec légères ondulations — de gauche (x=40) vers droite (x=640)
 const PATH_D =
-  "M 40 100 C 120 108 160 88 240 100 C 320 112 360 92 440 100 C 520 108 560 95 640 100";
+  "M 40 130 C 120 138 160 118 240 130 C 320 142 360 120 440 130 C 520 140 560 126 640 130";
 
 type Step = {
   id: string;
@@ -25,7 +25,7 @@ const steps: Step[] = [
     id: "arrivee",
     label: "L'arrivée",
     cx: 70,
-    cy: 100,
+    cy: 130,
     labelSide: "top",
     icon: (
       <g>
@@ -39,7 +39,7 @@ const steps: Step[] = [
     id: "decouverte",
     label: "La découverte",
     cx: 210,
-    cy: 100,
+    cy: 130,
     labelSide: "bottom",
     icon: (
       <g>
@@ -55,7 +55,7 @@ const steps: Step[] = [
     id: "repas",
     label: "Le repas",
     cx: 340,
-    cy: 100,
+    cy: 130,
     labelSide: "top",
     icon: (
       <g>
@@ -72,7 +72,7 @@ const steps: Step[] = [
     id: "dessert",
     label: "Le dessert",
     cx: 460,
-    cy: 100,
+    cy: 130,
     labelSide: "bottom",
     icon: (
       <g>
@@ -88,7 +88,7 @@ const steps: Step[] = [
     id: "partage",
     label: "Le partage",
     cx: 610,
-    cy: 100,
+    cy: 130,
     labelSide: "top",
     icon: (
       <g>
@@ -112,10 +112,10 @@ export function HeroPath() {
     >
       {/* viewBox 680×220 — centré verticalement dans la zone haute du Hero */}
       <svg
-        viewBox="0 0 680 220"
+        viewBox="0 0 680 260"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="absolute left-0 top-[28%] w-full"
+        className="absolute left-0 top-[18%] w-full"
         preserveAspectRatio="xMidYMid meet"
       >
         {/* ─── Chemin pointillé — tracé de droite à gauche ─── */}
@@ -163,7 +163,7 @@ export function HeroPath() {
             {/* Label */}
             <text
               x={step.cx}
-              y={step.labelSide === "top" ? step.cy - 28 : step.cy + 38}
+              y={step.labelSide === "top" ? step.cy - 34 : step.cy + 44}
               textAnchor="middle"
               fontSize="7.5"
               fill="var(--soft-foreground)"
@@ -185,9 +185,9 @@ export function HeroPath() {
         >
           <motion.line
             x1="640"
-            y1="100"
+            y1="130"
             x2="668"
-            y2="100"
+            y2="130"
             stroke="var(--accent)"
             strokeWidth="1.4"
             strokeLinecap="round"
@@ -197,7 +197,7 @@ export function HeroPath() {
           />
           {/* Pointe droite */}
           <path
-            d="M662 94 L668 100 L662 106"
+            d="M662 124 L668 130 L662 136"
             stroke="var(--accent)"
             strokeWidth="1.3"
             strokeLinecap="round"
@@ -206,7 +206,7 @@ export function HeroPath() {
           />
           <text
             x="628"
-            y="88"
+            y="118"
             textAnchor="middle"
             fontSize="6.8"
             fill="var(--accent)"
