@@ -7,9 +7,9 @@ import { motion } from "framer-motion";
  * 5 étapes révélées en séquence. Labels alternés haut/bas.
  */
 
-// Chemin horizontal avec légères ondulations — de droite (x=640) vers gauche (x=40)
+// Chemin horizontal avec légères ondulations — de gauche (x=40) vers droite (x=640)
 const PATH_D =
-  "M 640 100 C 560 95 520 108 440 100 C 360 92 320 112 240 100 C 160 88 120 108 40 100";
+  "M 40 100 C 120 108 160 88 240 100 C 320 112 360 92 440 100 C 520 108 560 95 640 100";
 
 type Step = {
   id: string;
@@ -24,7 +24,7 @@ const steps: Step[] = [
   {
     id: "arrivee",
     label: "L'arrivée",
-    cx: 610,
+    cx: 70,
     cy: 100,
     labelSide: "top",
     icon: (
@@ -38,7 +38,7 @@ const steps: Step[] = [
   {
     id: "decouverte",
     label: "La découverte",
-    cx: 460,
+    cx: 210,
     cy: 100,
     labelSide: "bottom",
     icon: (
@@ -71,7 +71,7 @@ const steps: Step[] = [
   {
     id: "dessert",
     label: "Le dessert",
-    cx: 210,
+    cx: 460,
     cy: 100,
     labelSide: "bottom",
     icon: (
@@ -87,7 +87,7 @@ const steps: Step[] = [
   {
     id: "partage",
     label: "Le partage",
-    cx: 70,
+    cx: 610,
     cy: 100,
     labelSide: "top",
     icon: (
@@ -115,7 +115,7 @@ export function HeroPath() {
         viewBox="0 0 680 220"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="absolute left-0 top-[8%] w-full"
+        className="absolute left-0 top-[28%] w-full"
         preserveAspectRatio="xMidYMid meet"
       >
         {/* ─── Chemin pointillé — tracé de droite à gauche ─── */}
@@ -177,16 +177,16 @@ export function HeroPath() {
           </motion.g>
         ))}
 
-        {/* ─── Flèche "le chemin continue" — part vers la gauche ─── */}
+        {/* ─── Flèche "le chemin continue" — part vers la droite ─── */}
         <motion.g
-          initial={{ opacity: 0, x: 8 }}
+          initial={{ opacity: 0, x: -8 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 3.8, ease: [0.22, 1, 0.36, 1] }}
         >
           <motion.line
-            x1="40"
+            x1="640"
             y1="100"
-            x2="12"
+            x2="668"
             y2="100"
             stroke="var(--accent)"
             strokeWidth="1.4"
@@ -195,9 +195,9 @@ export function HeroPath() {
             animate={{ pathLength: 1 }}
             transition={{ duration: 0.5, delay: 3.8 }}
           />
-          {/* Pointe gauche */}
+          {/* Pointe droite */}
           <path
-            d="M18 94 L12 100 L18 106"
+            d="M662 94 L668 100 L662 106"
             stroke="var(--accent)"
             strokeWidth="1.3"
             strokeLinecap="round"
@@ -205,7 +205,7 @@ export function HeroPath() {
             fill="none"
           />
           <text
-            x="52"
+            x="628"
             y="88"
             textAnchor="middle"
             fontSize="6.8"
