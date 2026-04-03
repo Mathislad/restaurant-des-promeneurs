@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { siteContent } from "@/lib/site-content";
 import { IlluWheatSprig, IlluFlowers, IlluFork, IlluLeaf } from "@/components/ui/illustrations";
+import { Logo } from "@/components/ui/logo";
 
 export function HeroSection() {
   return (
@@ -20,6 +21,16 @@ export function HeroSection() {
         animate={{ y: [0, 12, 0], x: [0, -10, 0] }}
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
       />
+
+      {/* Logo signature — en haut de page */}
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.2, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+        className="absolute left-6 top-6 z-20 w-16 sm:left-10 sm:top-8 sm:w-20 lg:left-16 lg:w-24"
+      >
+        <Logo variant="dark" className="h-full w-full" />
+      </motion.div>
 
       {/* Visuels décoratifs — apparition progressive au chargement */}
       <motion.div
