@@ -71,6 +71,6 @@ export const localBusinessJsonLd = {
   areaServed: "Le Puy-en-Velay et environs",
   telephone: "+33471004330",
   servesCuisine: ["Cuisine traditionnelle", "Cuisine familiale"],
-  url: "https://example.com",
+  url: "https://restaurant-des-promeneurs.vercel.app",
   priceRange: "€€",
 };
