@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { siteContent } from "@/lib/site-content";
+import { IlluWheatSprig, IlluFlowers, IlluFork, IlluLeaf } from "@/components/ui/illustrations";
 
 export function HeroSection() {
   return (
@@ -19,6 +20,47 @@ export function HeroSection() {
         animate={{ y: [0, 12, 0], x: [0, -10, 0] }}
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
       />
+
+      {/* Visuels décoratifs — apparition progressive au chargement */}
+      <motion.div
+        aria-hidden
+        initial={{ opacity: 0, y: 18, rotate: -8 }}
+        animate={{ opacity: 1, y: 0, rotate: -12 }}
+        transition={{ duration: 1.6, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        className="absolute right-4 top-10 w-24 sm:right-10 sm:w-32 md:right-16 md:top-16 md:w-40 lg:right-28"
+      >
+        <IlluWheatSprig className="h-full w-full" />
+      </motion.div>
+
+      <motion.div
+        aria-hidden
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1.8, delay: 1.1, ease: [0.22, 1, 0.36, 1] }}
+        className="absolute bottom-20 right-12 w-20 sm:right-20 sm:w-28 md:bottom-28 md:right-24 md:w-36"
+      >
+        <IlluFlowers className="h-full w-full" />
+      </motion.div>
+
+      <motion.div
+        aria-hidden
+        initial={{ opacity: 0, rotate: 10 }}
+        animate={{ opacity: 0.55, rotate: 6 }}
+        transition={{ duration: 2, delay: 1.4, ease: [0.22, 1, 0.36, 1] }}
+        className="absolute left-4 top-1/3 w-8 sm:left-8 sm:w-10 md:left-12 md:w-12 lg:left-20"
+      >
+        <IlluFork className="h-full w-full" />
+      </motion.div>
+
+      <motion.div
+        aria-hidden
+        initial={{ opacity: 0, y: -12 }}
+        animate={{ opacity: 0.7, y: 0 }}
+        transition={{ duration: 1.5, delay: 1.6, ease: [0.22, 1, 0.36, 1] }}
+        className="absolute left-8 bottom-24 w-14 sm:left-16 sm:w-18 md:left-24 md:w-20"
+      >
+        <IlluLeaf className="h-full w-full" />
+      </motion.div>
 
       <div className="relative z-10 mx-auto w-full max-w-5xl">
         <motion.p

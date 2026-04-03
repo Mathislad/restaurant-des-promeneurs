@@ -1,11 +1,39 @@
 import { Reveal } from "@/components/ui/reveal";
+import { ScrollVisual } from "@/components/ui/scroll-visual";
+import { IlluPlate, IlluWineGlass, IlluBowl } from "@/components/ui/illustrations";
 import { siteContent } from "@/lib/site-content";
 
 export function SoulSection() {
   return (
-    <section className="px-6 py-20 sm:px-10 lg:px-16 lg:py-28">
+    <section className="relative overflow-hidden px-6 py-20 sm:px-10 lg:px-16 lg:py-28">
+      {/* Visuels flottants qui apparaissent et disparaissent au scroll */}
+      <ScrollVisual
+        mode="ephemeral"
+        className="pointer-events-none absolute -right-6 top-12 w-36 opacity-70 sm:right-2 sm:w-44 md:right-8 md:w-52"
+        delay={0.1}
+      >
+        <IlluPlate className="h-full w-full" />
+      </ScrollVisual>
+
+      <ScrollVisual
+        mode="ephemeral"
+        className="pointer-events-none absolute right-16 top-48 w-16 opacity-60 sm:right-24 sm:w-20 md:right-32 md:w-24"
+        delay={0.3}
+      >
+        <IlluWineGlass className="h-full w-full" />
+      </ScrollVisual>
+
+      <ScrollVisual
+        mode="ephemeral"
+        className="pointer-events-none absolute -left-4 bottom-16 w-28 opacity-50 sm:left-2 sm:w-36 md:left-6 md:w-44"
+        delay={0.2}
+      >
+        <IlluBowl className="h-full w-full" />
+      </ScrollVisual>
+
+      <div className="relative z-10">
       <Reveal>
-        <p className="text-xs uppercase tracking-[0.24em] text-[var(--muted)]">L’âme du lieu</p>
+        <p className="text-xs uppercase tracking-[0.24em] text-[var(--muted)]">L'âme du lieu</p>
       </Reveal>
 
       <Reveal delay={0.08} className="mt-4 max-w-2xl">
@@ -24,6 +52,7 @@ export function SoulSection() {
             </blockquote>
           </Reveal>
         ))}
+      </div>
       </div>
     </section>
   );

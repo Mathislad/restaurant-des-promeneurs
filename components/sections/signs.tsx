@@ -1,10 +1,45 @@
 import { Reveal } from "@/components/ui/reveal";
+import { ScrollVisual } from "@/components/ui/scroll-visual";
+import { IlluWheatSprig, IlluLeaf, IlluRoad, IlluFlowers } from "@/components/ui/illustrations";
 import { siteContent } from "@/lib/site-content";
 
 export function SignsSection() {
   return (
     <section className="relative overflow-hidden px-6 py-20 sm:px-10 lg:px-16 lg:py-28">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_10%,rgba(137,147,116,0.15),transparent_45%),radial-gradient(circle_at_90%_88%,rgba(181,126,76,0.18),transparent_40%)]" />
+
+      {/* Visuels éphémères qui apparaissent et disparaissent */}
+      <ScrollVisual
+        mode="ephemeral"
+        className="pointer-events-none absolute right-0 top-0 w-28 opacity-60 sm:w-36 md:w-44"
+        delay={0.15}
+      >
+        <IlluWheatSprig className="h-full w-full" />
+      </ScrollVisual>
+
+      <ScrollVisual
+        mode="ephemeral"
+        className="pointer-events-none absolute -left-2 top-1/3 w-20 opacity-55 sm:w-24 md:w-32"
+        delay={0.25}
+      >
+        <IlluLeaf className="h-full w-full" />
+      </ScrollVisual>
+
+      <ScrollVisual
+        mode="ephemeral"
+        className="pointer-events-none absolute bottom-10 left-0 right-0 mx-auto w-56 opacity-40 sm:w-72 md:w-96"
+        delay={0.35}
+      >
+        <IlluRoad className="h-full w-full" />
+      </ScrollVisual>
+
+      <ScrollVisual
+        mode="ephemeral"
+        className="pointer-events-none absolute -right-4 bottom-16 w-24 opacity-55 sm:w-32 md:w-40"
+        delay={0.2}
+      >
+        <IlluFlowers className="h-full w-full" />
+      </ScrollVisual>
 
       <div className="relative z-10">
         <Reveal>
